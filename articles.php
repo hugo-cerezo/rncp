@@ -29,15 +29,24 @@ if (isset($_GET['categorie']))
 }
 else
 {
-    $request = "SELECT * FROM article ";
-    while ($i<$row)
+    $request3 = "SELECT * FROM article ";
+    $sql2 = mysqli_query($conn,$request3);
+    $row2 = mysqli_fetch_all($sql2);
+    var_dump($row2);
+    while ($i<2)
     {
         echo '<div>
-        <h2>"'.$row[$i][2].'"</h2>
-        src="images/"'.$row[$i][2].'".png"
-        <a href="article.php?id="'.$article.'"">voir plus</a>    
+        <h2>"'.$row2[$i][2].'"</h2>
+        <img src="images/'.$row2[$i][2].'.jpg"></br>
+        <a href="article.php?id="'.$row2[$i][2].'"">voir plus</a>    
         </div>';
         $i=$i+1;
     }
 }
 ?>
+<style>
+    img{
+        width:400px;
+        height:200px;
+    }
+</style>
