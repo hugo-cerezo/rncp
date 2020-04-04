@@ -8,15 +8,24 @@
 		$request = "SELECT login, password FROM utilisateurs";
 		$sql = mysqli_query($conn,$request);
 		$row = mysqli_fetch_all($sql);
-		/*var_dump($row);*/
+		var_dump($row);
 		$count = 0;
 		while($count < count($row))
 		{
 			if($_POST["login"] == $row[$count][0] && password_verify($_POST["mdp"], $row[$count][1]))
 			{
-              $_SESSION["connected"] = true;
-				$_SESSION["login"] = $_POST["login"];
-				header("location:index.php");
+				if ($_POST["login"] == $row[0][0] && password_verify($_POST["mdp"], $row[0][1]))
+				{
+					$_SESSION["connected"] = true;
+					$_SESSION["login"] = 'administrateur-hugo';
+					header("location:index.php");
+				}
+				else
+				{
+					$_SESSION["connected"] = true;
+					$_SESSION["login"] = $_POST["login"];
+					header("location:index.php");
+				}
 				
 			}
 			/*else

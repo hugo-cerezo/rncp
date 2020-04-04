@@ -6,16 +6,16 @@ $quelarticle = $_GET['id'];
 $request = "SELECT * FROM article WHERE title ='".$_GET['id']."' ";
 $query = mysqli_query($conn,$request);
 $row =  mysqli_fetch_all($query);
-var_dump($row);
+
 //affichage info article
-var_dump($row[0][4]);
-echo '<div>
-        <h2>'.$row[0][2].'</h2>
+
+echo '<div class="article">
+        <h1>'.$row[0][2].'</h1>
         <img src="images/'.$row[0][2].'.jpg"></br>
         <p>descrition:</p>
         <p>'.$row[0][3].'</p>
         <p> prix : '.$row[0][4].' </p>   
-        </div>';
+        ';
 
 //condition achat
 if (isset($_SESSION['login']))
@@ -31,6 +31,7 @@ if (isset($_SESSION['login']))
             <input type='number' name='quantité'>
             <input type='submit'> 
         </form>
+    </div>
         <?php
         if (isset($_POST['quantité']))
         {

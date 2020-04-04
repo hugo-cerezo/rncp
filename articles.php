@@ -13,6 +13,7 @@ $row = mysqli_fetch_all($sql);
     <a href='articles.php?categorie=3 '><h2>categorie 3</h2></a>
     <a href='articles.php?categorie=4 '><h2>categorie 4</h2></a>
 </div>
+<div class="allarticles">
 <?php
 $i=0;
 if (isset($_GET['categorie']))
@@ -22,7 +23,7 @@ if (isset($_GET['categorie']))
     $row3 = mysqli_fetch_all($sql3);
     while ($i<count($row3))
     {
-        echo '<div>
+        echo '<div class="articles">
         <h2>"'.$row3[$i][2].'"</h2>
         <img src="images/'.$row3[$i][2].'.jpg"></br>
         <a href="article.php?id='.$row3[$i][2].'">voir plus</a>  
@@ -37,7 +38,7 @@ else
     $row2 = mysqli_fetch_all($sql2);
     while ($i<count($row2))
     {
-        echo '<div>
+        echo '<div class="articles">
         <h2>"'.$row2[$i][2].'"</h2>
         <img src="images/'.$row2[$i][2].'.jpg"></br>
         <a href="article.php?id='.$row2[$i][2].'">voir plus</a>    
@@ -46,6 +47,7 @@ else
     }
 }
 ?>
+</div>
 <style>
     img{
         width:400px;
