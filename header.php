@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<header>
+<header class='header'>
+    <img class=logo src="images/logo.png">
 <a href='index.php'><div><h2>Acceuil</h2></div></a>
 <a href='articles.php'><div><h2>Nos articles</h2></div></a>
 <?php
@@ -26,7 +27,7 @@ if (isset($_POST['query']))
     //barre recherche
 }
 ?>
-<form action="article.php" method="post">
+<form class="recherchebar" action="article.php" method="post">
     <input type="text" name="query" />
     <input type="submit" value="Search" />
 </form>

@@ -34,21 +34,20 @@ if (isset($_SESSION['login']))
             $comandesadmin = 'SELECT * FROM commande ';
             $sqlad2 = mysqli_query($conn,$comandesadmin);
             $row5 = mysqli_fetch_all($sqlad2);
-            echo $row5[18][4];
             var_dump($row5);
             //affichage des commandes
             $i=0;
             while($i<count($row5))
             {
-                echo '</br>';
+                echo '</br><p>';
                 echo $row5[$i][2];//nom
-                echo '</br>';
+                echo '</p></br><p>';
                 echo $row5[$i][5];//date
-                echo '</br>';
+                echo '</p></br><p>';
                 echo $row5[$i][4];//desciptiopn commande
-                echo 'total :';
+                echo '</p><p>total :';
                 echo $row5[$i][3];//total
-                echo '</br>';
+                echo '</p></br>';
                 $i = $i+1;
             }
             

@@ -24,9 +24,9 @@ if (isset($_GET['categorie']))
     while ($i<count($row3))
     {
         echo '<div class="articles">
-        <h2>"'.$row3[$i][2].'"</h2>
-        <img src="images/'.$row3[$i][2].'.jpg"></br>
-        <a href="article.php?id='.$row3[$i][2].'">voir plus</a>  
+        <a href="article.php?id='.$row3[$i][2].'">
+        <img class="imgarticles" src="images/'.$row3[$i][2].'.jpg"></a>
+           
         </div>';
         $i=$i+1;
     }
@@ -39,9 +39,9 @@ else
     while ($i<count($row2))
     {
         echo '<div class="articles">
-        <h2>"'.$row2[$i][2].'"</h2>
-        <img src="images/'.$row2[$i][2].'.jpg"></br>
-        <a href="article.php?id='.$row2[$i][2].'">voir plus</a>    
+        <a href="article.php?id='.$row2[$i][2].'">
+        <img class="imgarticles" src="images/'.$row2[$i][2].'.jpg"></a>
+           
         </div>';
         $i=$i+1;
     }
@@ -49,12 +49,5 @@ else
 ?>
 </div>
 <style>
-    img{
-        width:400px;
-        height:200px;
-    }
-    header{
-        display :flex;
-
-    }
+    
 </style>
