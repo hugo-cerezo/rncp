@@ -21,14 +21,14 @@ if ($conn->query($sql) === TRUE) {
     $i=0;
     $total=0;
     ?>
-    <table>
+    <table class='pannier'>
         <tbody>
             <tr>
                 <td></td>
-                <td>nom</td>
-                <td>qtt</td>
-                <td>prix</td>
-                <td>total</td>
+                <td><h2>Nom du produit</h2></td>
+                <td><h2>Quantité</h2></td>
+                <td><h2>Prix</h2></td>
+                <td><h2>total</h2></td>
             </tr>
     <?php
     while ($i<count($row))
@@ -36,16 +36,16 @@ if ($conn->query($sql) === TRUE) {
         $tot=($row[$i][3])*($row[$i][2]);
         echo '<tr>';
         echo '<td>',$row[$i][0],'</td>';
+        $total = $total+$tot;
         echo '<td>',$row[$i][1],'</td>';
         echo '<td>',$row[$i][3],'</td>';
-        echo '<td>',$tot,'</td>';
-        echo '<td></td></tr>';
-        $total = $total+$tot;
+        echo '<td>',$tot,'$</td>';
+        echo '<td>'.$total.'</td></tr>';
         $i = $i+1;
     }
     echo '<tr><td></td><td></td><td></td><td></td><td>';
     echo $total;
-    echo '</td></tr>'
+    echo '$</td></tr>'
     ?>
     </tbody>
     </table>

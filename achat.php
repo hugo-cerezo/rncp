@@ -17,7 +17,7 @@ else
 {
     include 'header.php';
     ?>
-    <form action="achat.php" method="post">
+    <form class="buy" action="achat.php" method="post">
                     <label for='nom'>nom</label>
                     <input type="text" name="nom">
                     <label for='prenom'>prenom</label>

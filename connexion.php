@@ -2,6 +2,7 @@
 
 <?php
 	session_start();
+	include 'header.php';
 	if(isset($_POST["envoie"]))
 	{
 		$conn = mysqli_connect("localhost","root","","rncp");
@@ -43,13 +44,15 @@
 
 
 ?>
-
-<form class="form" action="" method="post">
-				<label for="login">Votre pseudo</label>
-				<input class="input" type="text" name="login"/></br>
-				<label for="mdp">Votre mot de passe</label>
-				<input class="input" type="password" name="mdp"/></br>
-				<input class="button1" type="submit" value="Se connecter" name="envoie"/>
-</form>
+<div class="connexion">
+	<img class=logo src="images/logo.png">
+	<form class="form" action="" method="post">
+					<label for="login">Votre pseudo</label></br>
+					<input class="input" type="text" name="login"/></br>
+					<label for="mdp">Votre mot de passe</label></br>
+					<input class="input" type="password" name="mdp"/></br>
+					<input class="button1" type="submit" value="Se connecter" name="envoie"/>
+	</form>
+</div>
 
 

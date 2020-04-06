@@ -1,11 +1,18 @@
 body{
     margin:0;
     padding:0;
+    background-color: #336699;
 }
+a:link
+{
+text-decoration:none;
+}
+a { text-decoration: none;color: #2F4858;}
 /* header */
 header{
     display:flex;
     position: static;
+    justify-content: center;
 }
 header a{
     margin-left: 2%;
@@ -14,9 +21,20 @@ header .recherchebar{
     margin-top: 1.5%;
     margin-left: 5%;
 }
+header input{
+    
+    background-color: #86BBD8;
+    
+}
 .logo{
     width: 100px;
     height: 80px;
+}
+.underline{
+    width: 50%;
+    border-bottom: 3px solid #2F485850;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 /* articles et article */
 .article{
@@ -73,8 +91,62 @@ header .recherchebar{
     gap: 1rem;
 }
 /* inscription */
+.inscription{
+    background-color: #2F4858;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-top: 18%;
+    border: 1px solid black;
+    padding: 25px;
+}
+.inscription input{
+    margin-top: 10px;
+    background-color: #86BBD8;
+    
+}
+.inscription label{
+    margin-top: 10px;
+}
+.inscription .logo{
+    margin-left: 20%;
+}
 /* connexion */
+.connexion{
+    background-color: #2F4858;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-top: 18%;
+    border: 1px solid black;
+    padding: 25px;
+}
+.connexion input{
+    margin-top: 10px;
+    background-color: #86BBD8;
+    
+}
+.connexion label{
+    margin-top: 10px;
+}
+.connexion .logo{
+    margin-left: 20%;
+}
+
 /* profil */
 /* profil admin */
 /* pannier */
 /* achat */
+.buy{
+    background-color: #2F4858;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 25px;
+}

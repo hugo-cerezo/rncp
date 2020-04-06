@@ -9,7 +9,8 @@
 <body>
 
 <header class='header'>
-    <img class=logo src="images/logo.png">
+
+<img class=logo src="images/logo.png">
 <a href='index.php'><div><h2>Acceuil</h2></div></a>
 <a href='articles.php'><div><h2>Nos articles</h2></div></a>
 <?php
@@ -32,5 +33,6 @@ if (isset($_POST['query']))
     <input type="submit" value="Search" />
 </form>
 </header>
+<div class="underline"></div>
 </body>
 </html>
