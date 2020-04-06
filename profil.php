@@ -69,34 +69,63 @@ if (isset($_SESSION['login'])) {
 
         echo "<h2>Creation et modification d'article</h2></br>";
         ?>
-        <form action="" method="post">
-            <p>modifier un article</p>
-            <select>
-                <?php
-                $i = 0;
-                while ($i < count($row6)) {
-                    echo '<option value="' . $row6[$i][2] . '">' . $row6[$i][2] . '</option>';
-                    $i = $i + 1;
-                }
-                ?>
-            </select>
-            <p>cree nouvel article</p>
-            <label for='titre'>titre</label>
-            <input type="text" name="titre">
-            <label for='categorie'>categorie</label>
-            <input type="text" name="categorie">
-            <label for='prix'>prix</label>
-            <input type="number" name="prix">
-            <label for='qtt'>quantité stock</label>
-            <input type="number" name="qtt">
-            <textarea name="textarea">description</textarea>
+        
+        <p>modifier un article</p>
+        <form action="" method="POST">
+            <div class="flexr">
+                <select name='option'>
+                    <option value='0'>Choissisez un jeu</option>
+                    <?php
+                    foreach ($row6 as $key => $value) {
+                        echo '<option name="' . $value[2] . '" value="' . $value[2] . '">' . $value[2] . '</option>';
+                    }
+                    ?>
+                </select>
+                <input type="submit" name='select_value'>
+            </div>
+        </form>
+
+        <?php
+        if (isset($_POST["select_value"])) {
+            $dataquery = "SELECT * FROM article WHERE title = '$_POST[option]'";
+            $execdataquery = mysqli_query($conn, $dataquery);
+            $fetchquery = mysqli_fetch_assoc($execdataquery);
+        ?>
+
+            <form action="" method="post" class="flexc form_admin">
+                <label for='titre'>titre</label>
+                <input type="text" name="up_titre" value='<?php echo $fetchquery['title'] ?>'>
+                <label for='categorie'>categorie</label>
+                <input type="text" name="up_categorie" value='<?php echo $fetchquery['categorie'] ?>'>
+                <label for='prix'>prix</label>
+                <input type="number" name="up_prix" value='<?php echo $fetchquery['price'] ?>'>
+                <label for='qtt'>quantité stock</label>
+                <input type="number" name="up_qtt" value='<?php echo $fetchquery['qtt'] ?>'>
+                <textarea name="up_textarea"><?php echo $fetchquery['description'] ?></textarea>
+                <!-- <input type='file' name='image'> -->
+                <input type="submit" name='up_art'>
+            </form>
+
+        <?php
+        }
+        ?>
+        <p>cree nouvel article</p>
+        <form action="" method="POST" class="flexc form_admin">
+            <label for='new_titre'>titre</label>
+            <input type="text" name="new_titre">
+            <label for='new_categorie'>categorie</label>
+            <input type="text" name="new_categorie">
+            <label for='new_prix'>prix</label>
+            <input type="number" name="new_prix">
+            <label for='new_qtt'>quantité stock</label>
+            <input type="number" name="new_qtt">
+            <textarea name="new_textarea">description</textarea>
             <!-- <input type='file' name='image'> -->
-            <input type="submit" name='newart'>
+            <input type="submit" name='new_art'>
         </form>
         <?php
-        if (isset($_POST['newart'])) {
-            $newarticle = "INSERT INTO article VALUES (NULL,'$_POST[categorie]','$_POST[titre]','$_POST[textarea]',$_POST[prix],$_POST[qtt],date) ";
-            var_dump($newarticle);
+        if (isset($_POST['new_art'])) {
+            $newarticle = "INSERT INTO article VALUES (NULL,'$_POST[new_categorie]','$_POST[new_titre]','$_POST[new_textarea]',$_POST[new_prix],$_POST[new_qtt],date)";
             $sqlad5 = mysqli_query($conn, $newarticle);
         }
     } else {

@@ -8,6 +8,15 @@ a:link
 text-decoration:none;
 }
 a { text-decoration: none;color: #2F4858;}
+/* Cheatcodes */
+.flexc {
+    display: flex;
+    flex-direction: column;
+}
+.flexr {
+    display: flex;
+    flex-direction: row;
+}
 /* header */
 header{
     display:flex;
@@ -139,6 +148,9 @@ header input{
 
 /* profil */
 /* profil admin */
+.form_admin {
+    width: 30vw;
+}
 /* pannier */
 /* achat */
 .buy{
