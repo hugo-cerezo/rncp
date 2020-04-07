@@ -69,7 +69,7 @@ if (isset($_SESSION['login'])) {
 
         echo "<h2>Creation et modification d'article</h2></br>";
         ?>
-        
+
         <p>modifier un article</p>
         <form action="" method="POST">
             <div class="flexr">
@@ -107,6 +107,10 @@ if (isset($_SESSION['login'])) {
             </form>
 
         <?php
+        } // fin affichage form
+        if (isset($_POST["up_art"])) {
+            $updatequery = "UPDATE article SET categorie = '$_POST[up_categorie]', title = '$_POST[up_titre]', description = '$_POST[up_textarea]', price = '$_POST[up_prix]', qtt = '$_POST[up_qtt]' WHERE title = '$_POST[up_titre]'";
+            $execupdatequery = mysqli_query($conn, $updatequery);
         }
         ?>
         <p>cree nouvel article</p>
