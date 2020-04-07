@@ -92,7 +92,7 @@ if (isset($_SESSION['login'])) {
             $fetchquery = mysqli_fetch_assoc($execdataquery);
         ?>
 
-            <form action="" method="post" class="flexc form_admin">
+            <form action="" method="post" class="flexc form_admin" enctype="multipart/form-data">
                 <label for='titre'>titre</label>
                 <input type="text" name="up_titre" value='<?php echo $fetchquery['title'] ?>'>
                 <label for='categorie'>categorie</label>
@@ -102,13 +102,37 @@ if (isset($_SESSION['login'])) {
                 <label for='qtt'>quantité stock</label>
                 <input type="number" name="up_qtt" value='<?php echo $fetchquery['qtt'] ?>'>
                 <textarea name="up_textarea"><?php echo $fetchquery['description'] ?></textarea>
-                <!-- <input type='file' name='image'> -->
+                <label for="upInputFile">image</label>
+                <input type="file" name="upInputFile" accept="image/png, image/jpeg">
                 <input type="submit" name='up_art'>
             </form>
 
         <?php
         } // fin affichage form
         if (isset($_POST["up_art"])) {
+            $upGameName = $_POST["up_titre"];
+            if (strlen($_FILES["upInputFile"]["name"]) != 0) {
+                $imgPath = "images/" . basename($_FILES["upInputFile"]["name"]);
+                $imgType = strtolower(pathinfo($imgPath, PATHINFO_EXTENSION));
+                $newName = "images/" . $upGameName . "." . $imgType;
+                $_SESSION["uploadOk"] = 1;
+                if ($imgType != "jpg" && $imgType != "png" && $imgType != "jpeg") {
+                    echo "Désoler, seulement les fichier JPG, JPEG, PNG accepter.";
+                    $_SESSION["uploadOk"] = 0;
+                }
+                if ($_SESSION["uploadOk"] == 1) {
+                    if (file_exists($newName)) {
+                        unlink($newName);
+                        echo "image remplacée";
+                    }
+                    move_uploaded_file($_FILES["upInputFile"]["tmp_name"], $imgPath);
+                    rename($imgPath, $newName);
+                    unset($_SESSION["uploadOk"]);
+                } else {
+                    echo "Image non insérer";
+                    unset($_SESSION["uploadOk"]);
+                }
+            }
             $updatequery = "UPDATE article SET categorie = '$_POST[up_categorie]', title = '$_POST[up_titre]', description = '$_POST[up_textarea]', price = '$_POST[up_prix]', qtt = '$_POST[up_qtt]' WHERE title = '$_POST[up_titre]'";
             $execupdatequery = mysqli_query($conn, $updatequery);
         }
@@ -124,11 +148,34 @@ if (isset($_SESSION['login'])) {
             <label for='new_qtt'>quantité stock</label>
             <input type="number" name="new_qtt">
             <textarea name="new_textarea">description</textarea>
-            <!-- <input type='file' name='image'> -->
+            <label for="new_inputFile">image</label>
+            <input type="file" name="new_inputFile" accept="image/png, image/jpeg">
             <input type="submit" name='new_art'>
         </form>
         <?php
         if (isset($_POST['new_art'])) {
+            $newGameName = $_POST["new_titre"];
+            if (strlen($_FILES["new_inputFile"]["name"]) != 0) {
+                $imgPath = "images/" . basename($_FILES["new_inputFile"]["name"]);
+                $imgType = strtolower(pathinfo($imgPath, PATHINFO_EXTENSION));
+                $newName = "images/" . $newGameName . "." . $imgType;
+                $_SESSION["uploadOk"] = 1;
+                if ($imgType != "jpg") {
+                    echo "Désoler, seulement les fichier JPG accepter.";
+                    $_SESSION["uploadOk"] = 0;
+                }
+                if ($_SESSION["uploadOk"] == 1) {
+                    if (file_exists($newName)) {
+                        unlink($newName);
+                    }
+                    move_uploaded_file($_FILES["new_inputFile"]["tmp_name"], $imgPath);
+                    rename($imgPath, $newName);
+                    unset($_SESSION["uploadOk"]);
+                } else {
+                    echo "Image non insérer";
+                    unset($_SESSION["uploadOk"]);
+                }
+            }
             $newarticle = "INSERT INTO article VALUES (NULL,'$_POST[new_categorie]','$_POST[new_titre]','$_POST[new_textarea]',$_POST[new_prix],$_POST[new_qtt],date)";
             $sqlad5 = mysqli_query($conn, $newarticle);
         }
