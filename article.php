@@ -68,3 +68,5 @@ else
          height:200px;
      }
  </style>
+
+ <?php include 'com.php'; ?>
