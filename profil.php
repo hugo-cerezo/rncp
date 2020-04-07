@@ -22,7 +22,7 @@ if (isset($_SESSION['login']))
                 echo $row4[$i][4];//email
                 echo $row4[$i][3];//adresse
                 ?>
-                <form action="pannier.php" method="post">
+                <form action="profil.php" method="post">
                 <button type="submit" name="<?php echo $row4[$i][1]; ?>">suprimer utilisateur</button>
                 </form>
                 <?php
@@ -70,8 +70,8 @@ if (isset($_SESSION['login']))
                 <?php
                 $i = $i+1;
             }
-            if (isset($_POST['updatevalue']))
             
+            //
             
             echo "<h2>Creation et modification d'article</h2></br>";
             ?>

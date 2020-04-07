@@ -22,6 +22,7 @@ echo '<div class="articleindex">
         </div>  
     </div>';
 //le mieux noter
+
 //systeme de notation off
 
 

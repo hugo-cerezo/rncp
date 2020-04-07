@@ -23,15 +23,20 @@ else
     echo '<a href="inscription.php"><div><h2>Inscription</h2></div></a>';
     echo '<a href="connexion.php"><div><h2>connexion</h2></div></a>';
 }
-if (isset($_POST['query']))
-{
-    //barre recherche
-}
+
 ?>
-<form class="recherchebar" action="article.php" method="post">
+<form class="recherchebar" action="" method="post">
     <input type="text" name="query" />
-    <input type="submit" value="Search" />
+    <input type="submit" name="Search" value="recherche" />
 </form>
+<?php
+    if (isset($_POST['query']))
+    {
+        $_SESSION['recherche']=$_POST['query'];
+        var_dump($_SESSION['recherche']);
+        header ('Location:search.php');
+    }
+?>
 </header>
 <div class="underline"></div>
 </body>

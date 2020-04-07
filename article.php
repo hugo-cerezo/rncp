@@ -9,7 +9,10 @@ $row =  mysqli_fetch_all($query);
 
 //affichage info article
 
-echo '<div class="article">
+echo '  <div >
+        <img class="articlefond" src="images/'.$row[0][2].'.jpg">
+        </div>
+        <div class="article">
         <h1>'.$row[0][2].'</h1>
         <img src="images/'.$row[0][2].'.jpg"></br>
         <p>descrition:</p>
@@ -31,6 +34,7 @@ if (isset($_SESSION['login']))
             <input type='number' name='quantité'>
             <input type='submit'> 
         </form>
+        <div>
     </div>
         <?php
         if (isset($_POST['quantité']))
@@ -62,6 +66,7 @@ else
 }
 
 ?>
+
  <style>
      img{
          width:400px;

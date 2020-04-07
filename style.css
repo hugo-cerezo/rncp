@@ -3,6 +3,7 @@ body{
     padding:0;
     background-color: #336699;
 }
+
 a:link
 {
 text-decoration:none;
@@ -38,6 +39,8 @@ header input{
 }
 /* articles et article */
 .article{
+    position: absolute;
+    margin-top: -500px;
     background-color: #CDD5D780;
     margin-left: 30%;
     margin-right: 30%;
@@ -79,6 +82,12 @@ header input{
 .articles{
     margin-left: 5px;
     margin-right: 5px;
+}
+.articlefond
+{
+    width: 100vw;
+    height: 100vh;
+    filter: blur(8px);
 }
 /* index */
 .titleindex{
