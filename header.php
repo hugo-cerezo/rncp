@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Titre de la page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen&amp;display=swap" rel="stylesheet">
     <script src="script.js"></script>
 </head>
 
@@ -25,6 +26,9 @@
         </a>
         <?php
         if (isset($_SESSION['login'])) {
+            if ($_SESSION["rang"] == 'admin') {
+                echo '<a href="admin.php"><div><h2>Profil</h2></div></a>';
+            }
             echo '<a href="profil.php"><div><h2>Profil</h2></div></a>';
             echo '<a href="profil.php?exit=true"><div><h2>Déconnexion</h2></div></a>';
         } else {
