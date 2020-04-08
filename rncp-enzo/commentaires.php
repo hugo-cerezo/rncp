@@ -1,9 +1,12 @@
 <?php
-$requestcom = "SELECT * FROM commentaire WHERE title = '" . $row[0][2] . "'";
+session_start();
+include 'header.php';
+$conn = mysqli_connect("localhost", "root", "", "rncp");
+$requestcom = "SELECT * FROM commentaire WHERE title = $_GET[id]";
 $querycom = mysqli_query($conn, $requestcom);
 $rowcom =  mysqli_fetch_all($querycom);
 $i = 0;
-while ($i < 3) {
+while ($i < count($rowcom)) {
     echo '<div class="commentaire"><p>';
     echo $rowcom[$i][2] . ' ';
     echo 'le ';
@@ -14,7 +17,7 @@ while ($i < 3) {
     ++$i;
 }
 ?>
-<a href="commentaires.php?id='<?php echo $row[0][2]; ?>'">Voir plus...</a>
+<a href="">Voir plus...</a>
 <form method="POST" class="flexc com_article">
     <p> laissez une note </p>
     <select name="rating">
