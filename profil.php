@@ -4,7 +4,7 @@ $conn = mysqli_connect("localhost", "root", "", "rncp");
 include 'header.php';
 var_dump($_SESSION['login']);
 if (isset($_SESSION['login'])) {
-    if ($_SESSION['login'] == 'administrateur-hugo') {
+    if ($_SESSION['login'] == 'hugo') {
         echo '<h2>welcomme admin</h2></br>';
 
 

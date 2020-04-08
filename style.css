@@ -1,7 +1,7 @@
 body{
     margin:0;
     padding:0;
-    background-color: #336699;
+    background-color: #bebebe;
 }
 a:link
 {
@@ -46,6 +46,9 @@ header input{
     margin-right: 25%;
 }
 /* articles et article */
+.com_article {
+    width: 30vw;
+}
 .article{
     background-color: #CDD5D780;
     margin-left: 30%;
