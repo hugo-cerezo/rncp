@@ -1,34 +1,28 @@
-
 <?php
-	session_start();
-	include 'header.php';
-	$_SESSION["validation"] = true;
-	
-	if(isset($_POST["envoie"]))
-	{
-	if ($_POST["mdp"]==$_POST['remdp'])
-	{
+session_start();
+include 'header.php';
+$_SESSION["validation"] = true;
+if (isset($_POST["envoie"])) {
+	if ($_POST["mdp"] == $_POST['remdp']) {
 		echo "test";
-		$conn     = mysqli_connect("localhost","root","","rncp");
+		$conn     = mysqli_connect("localhost", "root", "", "rncp");
 		$request  = "SELECT login FROM utilisateurs";
-		$query    = mysqli_query($conn,$request);
+		$query    = mysqli_query($conn, $request);
 		$response = mysqli_fetch_all($query);
-		
+
 		$count = 0;
-		while($count < count($response))
-		{
-			if($response[$count][0] == $_POST["login"])
-			{
+		while ($count < count($response)) {
+			if ($response[$count][0] == $_POST["login"]) {
 				$_SESSION["validator"] = false;
 				header("location:inscription.php");
 			}
 			$count++;
 		}
-		
-		if($_SESSION["validation"])
-		{
+
+		if ($_SESSION["validation"]) {
+			
 			$request2 = "INSERT INTO utilisateurs VALUES (NULL,'".$_POST["login"]."','".password_hash($_POST["mdp"],PASSWORD_BCRYPT)."','$_POST[adresse]','$_POST[mail]','user');";
-			$query2 =mysqli_query($conn, $request2);
+			$query2 = mysqli_query($conn, $request2);
 			var_dump($request2);
 			header("location:connexion.php");
 		}
@@ -46,7 +40,7 @@
 		<label for="remdp">Confirmez votre mot de passe</label></br>
 		<input class="input" type="password" name="remdp"/><br/>
 		<label for="adresse">adresse</label></br>
-		<input class="input" type="password" name="adresse"/><br/>
+		<input class="input" type="text" name="adresse"/><br/>
 		<label for="mail">email</label></br>
 		<input class="input" type="email" name="mail"/><br/>
 		<input class="button1" type="submit" name="envoie" value="Se connecter"/>
