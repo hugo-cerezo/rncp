@@ -15,9 +15,9 @@ include 'header.php';
         while ($i < count($row4)) {
             echo "<div class='flexr justsb'>";
             echo "<div>";
-            echo $row4[$i][1] . '<br><br>'; //login
-            echo $row4[$i][4] . '<br><br>'; //email
-            echo $row4[$i][3] . '<br><br>'; //adresse
+            echo '<p>'.$row4[$i][1] . '</p><br>'; //login
+            echo '<p>'.$row4[$i][4] . '</p><br>'; //email
+            echo '<p>'.$row4[$i][3] . '</p><br>'; //adresse
             echo "</div>";
     ?>
             <div>

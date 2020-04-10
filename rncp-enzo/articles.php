@@ -8,11 +8,12 @@ $row = mysqli_fetch_all($sql);
 
 ?>
 <div class="selectioncategorie">
-    <a href='articles.php?categorie=inde '><h2>indé </h2></a>
+    <a href='articles.php?categorie=inde '><h2>Indé </h2></a>
     <a href='articles.php?categorie=AAA '><h2>AAA</h2></a>
-    <a href='articles.php?categorie=playwth '><h2>play with friends</h2></a>
-    <a href='articles.php?categorie=retro '><h2>retro</h2></a>
+    <a href='articles.php?categorie=playwth '><h2>Play With Friends</h2></a>
+    <a href='articles.php?categorie=retro '><h2>Retro</h2></a>
 </div>
+<div class="underline2"></div>
 <div class="allarticles">
 <?php
 $i=0;

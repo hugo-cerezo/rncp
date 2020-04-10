@@ -22,7 +22,6 @@ if (isset($_POST["envoie"])) {
 }
 ?>
 <div class="connexion">
-	<img class=logo src="images/logo.png">
 	<form class="form" action="" method="post">
 		<label for="login">Votre pseudo</label></br>
 		<input class="input" type="text" name="login" /></br>

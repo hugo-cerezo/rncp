@@ -31,7 +31,6 @@ if (isset($_POST["envoie"])) {
 
 ?>
 <div class="inscription">
-	<img class=logo src="images/logo.png">
 	<form class="form" name="inscription" method="post" action="">
 		<label for="login">Votre pseudo</label></br>
 		<input class="input" type="text" name="login"/> <br/>

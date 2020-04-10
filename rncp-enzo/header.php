@@ -16,7 +16,7 @@
         <img class=logo src="images/logo.png">
         <a href='index.php'>
             <div>
-                <h2>Acceuil</h2>
+                <h2>Accueil</h2>
             </div>
         </a>
         <a href='articles.php'>
@@ -33,7 +33,7 @@
             echo '<a href="profil.php?exit=true"><div><h2>Déconnexion</h2></div></a>';
         } else {
             echo '<a href="inscription.php"><div><h2>Inscription</h2></div></a>';
-            echo '<a href="connexion.php"><div><h2>connexion</h2></div></a>';
+            echo '<a href="connexion.php"><div><h2>Connexion</h2></div></a>';
         }
         if (isset($_GET["exit"])) {
             if ($_GET["exit"] == true) {

@@ -3,6 +3,7 @@ $requestcom = "SELECT * FROM commentaire WHERE title = '" . $row[0][2] . "'";
 $querycom = mysqli_query($conn, $requestcom);
 $rowcom =  mysqli_fetch_all($querycom);
 if ($rowcom == true) {
+// WARNING MESSA IF ROWCOUNT < WHILE TO FIX
     $i = 0;
     while ($i < 3) {
         echo '<div class="commentaire"><p class="userName">';
