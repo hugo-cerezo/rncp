@@ -97,4 +97,7 @@ if ($_SESSION['rang'] == 'admin') {
         var_dump($newarticle);
         $sqlad5 = mysqli_query($conn, $newarticle);
     }
+
+    $requestaverage = "INSERT INTO rating_average VALUES (NULL,'$_POST[newart]',0)";
+    $sqlad6 = mysqli_query($conn, $requestaverage);
 }

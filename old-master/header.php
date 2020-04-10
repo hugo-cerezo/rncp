@@ -26,14 +26,14 @@ else
 
 ?>
 <form class="recherchebar" action="" method="post">
-    <input type="text" name="query" />
-    <input type="submit" name="Search" value="recherche" />
+    <input class="input" type="text" name="query" />
+    <input class="button" type="submit" name="Search" value="recherche" />
 </form>
 <?php
     if (isset($_POST['query']))
     {
         $_SESSION['recherche']=$_POST['query'];
-        var_dump($_SESSION['recherche']);
+            
         header ('Location:search.php');
     }
 ?>

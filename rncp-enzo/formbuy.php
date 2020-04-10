@@ -6,11 +6,16 @@ if (isset($_SESSION['login'])) {
     } else {
 ?>
         <form action='article.php?id=<?php echo $row[0][2]; ?>' method='post'>
-            <input type='number' name='quantité'>
-            <input type='submit'>
+            <div class="flexr">
+                <input class="nbrSelect" type='number' name='quantité'>
+                <input class="ajtPanier" type='submit' value="Ajouter au panier">
+            </div>
         </form>
 <?php
         if (isset($_POST['quantité'])) {
+            if ($_POST['quantité'] == 0) {
+                $_POST['quantité'] = 1;
+            }
             // table nom_table exist
             $title = $row[0][2];
             $prix = $row[0][4];
